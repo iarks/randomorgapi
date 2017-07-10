@@ -10,4 +10,4 @@ This library makes it easy to integrate random.org's 'true randomness' into java
 * This repo is used to store the source code of the library. The goal is to make it easy to integrate random.org's 'true randomness' into java projects by getting rid of underlaying http requests and making things as simple as making a few method calls.
 
 ### How do I use this library in my project?
-* To see this library in action and use it in your own projects, consider checking out [this example](https://github.com/iarks/RandomOrgAPIExample) project
+* To see this library in action and use it in your own projects consider checking out [this example](https://github.com/iarks/RandomOrgAPIExample) project
