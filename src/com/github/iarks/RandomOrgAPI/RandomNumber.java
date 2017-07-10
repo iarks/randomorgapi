@@ -16,18 +16,19 @@ import java.io.OutputStream;
 import java.net.URL;
 
 
-public class RandomGenerator
+public class RandomNumber
 {
     private String key;
     private JsonArray data;
     private JsonElement result;
+    private int numberOfRandoms=0;
 
-    public RandomGenerator(String api_key)
+    public RandomNumber(String api_key)
     {
         key = "\"" + api_key + "\"";
     }
 
-    public void randomNumberGenerate(int n, int max, int min, boolean replacement, String id) throws InvalidResponseException
+    public void generate(int n, int max, int min, boolean replacement, String id) throws InvalidResponseException
     {
         //Initialise payload
         String payload = "{\"jsonrpc\": \"2.0\", \"method\": \"generateIntegers\", \"params\": {\"apiKey\":" + key + ", \"n\":" + n + ",\"min\":" + min + ",\"max\": " + max + " ,\"replacement\": " + replacement + " },\"id\": \"" + id + "\"}";
@@ -37,6 +38,7 @@ public class RandomGenerator
         StringBuilder response = new StringBuilder();
         URL url;
         int flag=1;
+        numberOfRandoms=n;
 
         HttpsURLConnection connection=null;
         BufferedReader br=null;
@@ -134,6 +136,29 @@ public class RandomGenerator
             throw new InvalidMethodCallException("Index does not exist", nullPointerException);
         }
         return Integer.parseInt(dataItem);
+    }
+
+    public int[] getElementAsArray(int index) throws InvalidMethodCallException
+    {
+        int array[] = new int[numberOfRandoms];
+        if (numberOfRandoms==0)
+        {
+            throw new InvalidMethodCallException("Index does not exist", null);
+        }
+        String dataItem;
+        for (int i=0;i<numberOfRandoms;i++)
+        {
+            try
+            {
+                dataItem = (data.get(index)).toString();
+            }
+            catch (NullPointerException nullPointerException)
+            {
+                throw new InvalidMethodCallException("Index does not exist", nullPointerException);
+            }
+            array[i]=Integer.parseInt(dataItem);
+        }
+        return array;
     }
 
     public int getBitsUsed()throws InvalidMethodCallException
