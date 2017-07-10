@@ -11,24 +11,4 @@ This library is still a work in progress. More information will be updated as so
 ### What is this repository for? ###
 
 * This library makes it easy to integrate random.org's 'true randomness' into java projects by getting rid of underlaying http requests and making things as simple as making a method call.
-* [To see this library in action, consider checking out this example project](https://github.com/iarks/RandomNumberExample)
-
-### How do I get set up? ###
-
-* Summary of set up
-* Configuration
-* Dependencies
-* Database configuration
-* How to run tests
-* Deployment instructions
-
-### Contribution guidelines ###
-
-* Writing tests
-* Code review
-* Other guidelines
-
-### Who do I talk to? ###
-
-* Repo owner or admin
-* Other community or team contact
+* To see this library in action, consider checking out [this example](https://github.com/iarks/RandomNumberExample) project
