@@ -124,7 +124,7 @@ public class RandomNumber
         //System.out.println(data.get(0));
     }
 
-    public int getElement(int index) throws InvalidMethodCallException
+    public int getElementAt(int index) throws InvalidMethodCallException
     {
         String dataItem;
         try
@@ -138,7 +138,7 @@ public class RandomNumber
         return Integer.parseInt(dataItem);
     }
 
-    public int[] getElementAsArray(int index) throws InvalidMethodCallException
+    public int[] getElementAsArray() throws InvalidMethodCallException
     {
         int array[] = new int[numberOfRandoms];
         if (numberOfRandoms==0)
@@ -150,7 +150,7 @@ public class RandomNumber
         {
             try
             {
-                dataItem = (data.get(index)).toString();
+                dataItem = (data.get(i)).toString();
             }
             catch (NullPointerException nullPointerException)
             {
